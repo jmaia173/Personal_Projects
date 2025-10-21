@@ -1,0 +1,119 @@
+body {
+  font-family: "Inter", sans-serif;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.matrix {
+  position: relative;
+  width: 90vmin;
+  height: 90vmin;
+  max-width: 900px;
+  max-height: 900px;
+  background: #fff;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Axes */
+.axis-x,
+.axis-y {
+  position: absolute;
+  background: #ccc;
+}
+.axis-x {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+}
+.axis-y {
+  height: 100%;
+  width: 2px;
+  left: 50%;
+  top: 0;
+}
+
+/* Quadrant labels */
+.quadrant-label {
+  position: absolute;
+  font-weight: 700;
+  font-size: 1rem;
+  opacity: 0.6;
+}
+.entertain {
+  top: 3%;
+  left: 5%;
+  color: #4caf50;
+  transform: rotate(-35deg);
+}
+.inspire {
+  top: 3%;
+  right: 5%;
+  color: #e74c3c;
+  transform: rotate(35deg);
+}
+.educate {
+  bottom: 3%;
+  left: 5%;
+  color: #2196f3;
+  transform: rotate(-35deg);
+}
+.convince {
+  bottom: 3%;
+  right: 5%;
+  color: #f39c12;
+  transform: rotate(35deg);
+}
+
+/* Bubbles */
+.bubble {
+  position: absolute;
+  padding: 12px 18px;
+  border-radius: 50%;
+  color: white;
+  font-size: 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bubble:hover {
+  transform: scale(1.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Colors */
+.green { background: #6fbf73; }
+.red { background: #e57373; }
+.blue { background: #64b5f6; } /* default color */
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+@media (max-width: 600px) {
+  .bubble {
+    font-size: 0.7rem;
+    padding: 10px 12px;
+  }
+  .quadrant-label {
+    font-size: 0.8rem;
+  }
+}
