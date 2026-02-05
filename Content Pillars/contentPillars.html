@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Content Pillars Canvas</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .canvas {
+      width: 95%;
+      max-width: 1200px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 30px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .pillar {
+      border-radius: 14px;
+      padding: 20px;
+      background: linear-gradient(145deg, #eef1f8, #ffffff);
+      border: 1px solid #e3e7f0;
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+    }
+
+    .pillar h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .theme-input {
+      margin-bottom: 12px;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #cfd6e6;
+    }
+
+    .content-area {
+      flex-grow: 1;
+      border-radius: 10px;
+      border: 1px dashed #cfd6e6;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+    }
+
+    @media (max-width: 900px) {
+      .pillars {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="title">
+      <h1>Marketing Campaign Content Pillars</h1>
+      <p>Define your 4 overarching themes and plan content under each.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <h2>Pillar 1</h2>
+        <input class="theme-input" placeholder="Enter overarching theme..." />
+        <textarea class="content-area" placeholder="Ideas, messages, angles, content types..."></textarea>
+      </div>
+
+      <div class="pillar">
+        <h2>Pillar 2</h2>
+        <input class="theme-input" placeholder="Enter overarching theme..." />
+        <textarea class="content-area" placeholder="Ideas, messages, angles, content types..."></textarea>
+      </div>
+
+      <div class="pillar">
+        <h2>Pillar 3</h2>
+        <input class="theme-input" placeholder="Enter overarching theme..." />
+        <textarea class="content-area" placeholder="Ideas, messages, angles, content types..."></textarea>
+      </div>
+
+      <div class="pillar">
+        <h2>Pillar 4</h2>
+        <input class="theme-input" placeholder="Enter overarching theme..." />
+        <textarea class="content-area" placeholder="Ideas, messages, angles, content types..."></textarea>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
