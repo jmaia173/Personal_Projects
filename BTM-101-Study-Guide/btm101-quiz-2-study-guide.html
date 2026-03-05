@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTM101 · Old Testament Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #8a6f2e;
+    --parchment: #f5ecd7;
+    --parchment-dark: #e8d5b0;
+    --ink: #1a1208;
+    --ink-mid: #3d2e0f;
+    --ink-light: #5c4520;
+    --red: #8b1a1a;
+    --scroll-bg: #faf3e0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #0d0a04;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, #1a1005 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, #120e03 0%, transparent 60%);
+    font-family: 'Crimson Pro', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* Decorative border frame */
+  .page-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    text-align: center;
+    padding: 50px 20px 30px;
+    position: relative;
+  }
+
+  .header-ornament {
+    color: var(--gold);
+    font-size: 28px;
+    letter-spacing: 8px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--gold-light);
+    text-shadow: 0 0 40px rgba(201,168,76,0.4), 0 2px 4px rgba(0,0,0,0.8);
+    letter-spacing: 3px;
+    line-height: 1.2;
+  }
+
+  header h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: clamp(13px, 2vw, 18px);
+    color: var(--gold-dim);
+    letter-spacing: 6px;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    opacity: 0.6;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .divider span { color: var(--gold); font-size: 18px; }
+
+  /* Progress bar */
+  .progress-container {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 30px;
+    padding: 12px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress-bar-wrap {
+    flex: 1;
+    height: 8px;
+    background: rgba(201,168,76,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold-light));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+  .progress-text {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* Navigation tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    padding: 8px 16px;
+    border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.05);
+    color: var(--gold-dim);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+  .tab:hover, .tab.active {
+    background: rgba(201,168,76,0.15);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* Section headers */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+
+  /* COMMANDMENTS */
+  .commandments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .commandment-card {
+    background: linear-gradient(135deg, var(--scroll-bg) 0%, var(--parchment) 100%);
+    border: 1px solid var(--parchment-dark);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .commandment-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .commandment-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .commandment-card:hover::before { opacity: 1; }
+  .commandment-card.revealed { border-left-color: var(--red); }
+
+  .cmd-number {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .cmd-short {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .cmd-full {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    font-style: italic;
+    display: none;
+    border-top: 1px solid var(--parchment-dark);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+  .commandment-card.revealed .cmd-full { display: block; }
+  .cmd-reveal-hint {
+    font-size: 11px;
+    color: var(--gold-dim);
+    margin-top: 6px;
+    opacity: 0.7;
+  }
+  .commandment-card.revealed .cmd-reveal-hint { display: none; }
+
+  /* Q&A Cards */
+  .qa-section { margin-bottom: 32px; }
+  .book-header {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold);
+    padding: 10px 0 6px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .book-header span { font-size: 22px; }
+
+  .qa-card {
+    background: linear-gradient(135deg, var(--scroll-bg) 0%, var(--parchment) 100%);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .qa-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+
+  .qa-question {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .qa-question-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    flex: 1;
+  }
+  .qa-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .points-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    padding: 3px 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-dim);
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .toggle-icon {
+    color: var(--gold);
+    font-size: 18px;
+    transition: transform 0.3s;
+    line-height: 1;
+  }
+  .qa-card.open .toggle-icon { transform: rotate(45deg); }
+  .qa-card.open { border-color: var(--gold-dim); }
+
+  .qa-answer {
+    display: none;
+    padding: 0 20px 18px;
+    border-top: 1px solid var(--parchment-dark);
+  }
+  .qa-card.open .qa-answer { display: block; }
+
+  .answer-inner {
+    padding-top: 14px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-mid);
+  }
+  .answer-inner strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .answer-inner .key-term {
+    color: var(--red);
+    font-weight: 600;
+    font-style: italic;
+  }
+  .answer-inner ul {
+    margin: 8px 0 8px 20px;
+  }
+  .answer-inner li {
+    margin-bottom: 6px;
+  }
+  .answer-inner .highlight-box {
+    background: rgba(201,168,76,0.1);
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    margin: 10px 0;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+  }
+
+  .memorize-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    opacity: 0.8;
+  }
+
+  /* Hidden section handling */
+  .content-section { display: none; }
+  .content-section.active { display: block; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .commandments-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 26px; }
+    .tabs { gap: 3px; }
+    .tab { font-size: 10px; padding: 6px 10px; }
+  }
+
+  /* Subtle grain overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.3;
+    z-index: 9999;
+  }
+
+  .all-open-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 8px 18px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-dim);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+  }
+  .all-open-btn:hover { background: rgba(201,168,76,0.1); color: var(--gold-light); }
+</style>
+</head>
+<body>
+<div class="page-frame">
+  <header>
+    <div class="header-ornament">✦ ✦ ✦</div>
+    <h1>BTM101 · Old Testament</h1>
+    <h2>Quiz Study Guide</h2>
+    <div class="divider"><span>✦</span></div>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress-container">
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">0 / 15 reviewed</div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" onclick="showSection('commandments')">⚖ The 10 Commandments</div>
+    <div class="tab" onclick="showSection('exodus')">📜 Exodus & Leviticus</div>
+    <div class="tab" onclick="showSection('numbers')">🗺 Numbers & Deuteronomy</div>
+    <div class="tab" onclick="showSection('joshua')">⚔ Joshua & Judges</div>
+    <div class="tab" onclick="showSection('ruth')">🌾 Ruth & Holiness</div>
+  </div>
+
+  <!-- COMMANDMENTS -->
+  <div class="content-section active" id="commandments">
+    <p class="section-label">Click each tablet to reveal the full text</p>
+    <div class="commandments-grid" id="cmdGrid"></div>
+  </div>
+
+  <!-- EXODUS & LEVITICUS -->
+  <div class="content-section" id="exodus">
+    <button class="all-open-btn" onclick="openAll('exodus')">EXPAND ALL</button>
+    <div class="qa-section" id="exodus-qa"></div>
+  </div>
+
+  <!-- NUMBERS & DEUTERONOMY -->
+  <div class="content-section" id="numbers">
+    <button class="all-open-btn" onclick="openAll('numbers')">EXPAND ALL</button>
+    <div class="qa-section" id="numbers-qa"></div>
+  </div>
+
+  <!-- JOSHUA & JUDGES -->
+  <div class="content-section" id="joshua">
+    <button class="all-open-btn" onclick="openAll('joshua')">EXPAND ALL</button>
+    <div class="qa-section" id="joshua-qa"></div>
+  </div>
+
+  <!-- RUTH & HOLINESS -->
+  <div class="content-section" id="ruth">
+    <button class="all-open-btn" onclick="openAll('ruth')">EXPAND ALL</button>
+    <div class="qa-section" id="ruth-qa"></div>
+  </div>
+</div>
+
+<script>
+const commandments = [
+  { num: "I", short: "No other gods", full: "You shall have no other gods before Me. God alone is to be worshipped — absolute monotheism, total loyalty." },
+  { num: "II", short: "No idols", full: "You shall not make for yourself a carved image or any likeness to bow down to or serve. God cannot be reduced to an object." },
+  { num: "III", short: "No misuse of God's name", full: "You shall not take the name of the LORD your God in vain. God's name carries His holy character — it must be honored." },
+  { num: "IV", short: "Remember the Sabbath", full: "Remember the Sabbath day, to keep it holy. Work six days, rest on the seventh. A holy rhythm mirroring God's creation rest." },
+  { num: "V", short: "Honor your parents", full: "Honor your father and your mother, that your days may be long upon the land the LORD your God is giving you." },
+  { num: "VI", short: "Do not murder", full: "You shall not murder. Human life bears the image of God (imago Dei) and is therefore sacred and not to be taken unlawfully." },
+  { num: "VII", short: "Do not commit adultery", full: "You shall not commit adultery. Marriage is a sacred covenant; faithfulness reflects God's own covenant faithfulness to Israel." },
+  { num: "VIII", short: "Do not steal", full: "You shall not steal. Respecting others' property upholds human dignity and justice in community." },
+  { num: "IX", short: "Do not bear false witness", full: "You shall not bear false witness against your neighbor. Truth and integrity are foundational to a just society." },
+  { num: "X", short: "Do not covet", full: "You shall not covet your neighbor's house, wife, servants, animals, or anything that belongs to your neighbor. It targets the heart — the root of sin." },
+];
+
+const qaData = {
+  exodus: {
+    icon: "📜",
+    title: "Exodus & Leviticus",
+    questions: [
+      {
+        q: "Describe in detail one theological theme from the book of Exodus.",
+        pts: 1,
+        a: `<strong>Theme: Liberation / God as Deliverer</strong><br><br>
+One of the most prominent theological themes in Exodus is <span class="key-term">God as Liberator</span>. The entire narrative centers on Israel's bondage in Egypt and God's dramatic intervention to set them free. This establishes a foundational portrait of who God is — not a distant deity, but one who <em>sees</em> suffering (Exodus 3:7), <em>hears</em> cries, and <em>acts</em> decisively in history.<br><br>
+The Exodus event becomes the defining moment of Israel's identity: they are a people <em>redeemed by grace</em>, not by their own merit. God initiates salvation through the Passover (the blood of the lamb protecting Israel), the parting of the Red Sea, and the defeat of Pharaoh.<br><br>
+<div class="highlight-box">This theme also foreshadows the New Testament: Jesus as the Passover Lamb who delivers humanity from bondage to sin.</div>
+<strong>Other valid themes:</strong> Covenant at Sinai, God's holiness/presence (tabernacle), God's law as gift.`
+      },
+      {
+        q: "Why was the book of Exodus so important to African-American slaves?",
+        pts: 2,
+        a: `The book of Exodus was <strong>profoundly meaningful</strong> to enslaved African Americans for two key reasons:<br><br>
+<strong>1. Identification with Israel's bondage:</strong> African-American slaves saw their own situation mirrored in the Israelites' oppression in Egypt. Like Israel, they were a people in forced labor under a brutal system with no apparent way out. The story told them their suffering was <em>seen by God</em> — and that God takes sides with the oppressed.<br><br>
+<strong>2. Hope of deliverance:</strong> Just as God liberated Israel from Pharaoh, enslaved people held onto the theological conviction that God would deliver them too. Moses became a symbol of a liberating leader — expressed powerfully in the spiritual <em>"Go Down, Moses."</em> Exodus gave them <span class="key-term">theological hope</span> that freedom was not only possible but promised by a just God.<br><br>
+<div class="highlight-box">Exodus became the foundation of Black liberation theology — the belief that God is a God of justice who acts on behalf of the oppressed in concrete, historical ways.</div>`
+      },
+      {
+        q: "Describe in detail one theological theme from the book of Leviticus.",
+        pts: 1,
+        a: `<strong>Theme: Holiness of God & the Call to Holy Living</strong><br><br>
+The central theme of Leviticus is captured in the repeated refrain: <span class="key-term">"Be holy, for I the LORD your God am holy"</span> (Leviticus 19:2). The entire book is built around the question: <em>How can a sinful people dwell in the presence of a holy God?</em><br><br>
+God's answer is the elaborate system of <strong>sacrifices, purity laws, and priestly rituals</strong> — not as empty rules, but as a structure that constantly reminded Israel of God's holiness and their need for atonement and cleanliness to approach Him.<br><br>
+The Day of Atonement (Yom Kippur) is the climax: a yearly national reset where sin is symbolically transferred onto a scapegoat, pointing to the deep problem of human sin and the need for substitution.<br><br>
+<div class="highlight-box">Theologically, Leviticus teaches that holiness is both God's nature AND a call for His people — ethics and worship are inseparable.</div>
+<strong>Other valid themes:</strong> Atonement, sacrifice, the priestly system, purity.`
+      },
+      {
+        q: "What does the Hebrew word <em>kedosh</em> mean in the Old Testament?",
+        pts: 1,
+        a: `The Hebrew word <span class="key-term">kedosh</span> (קָדוֹשׁ) means <strong>"holy" or "set apart."</strong><br><br>
+It carries the idea of something or someone who is <em>distinct, separate, other</em> — removed from the ordinary and dedicated to God. When applied to God, it describes His radical <strong>otherness</strong> — His moral purity, majesty, and transcendence that sets Him apart from all creation.<br><br>
+When applied to Israel (e.g., "a holy nation"), it means they are <strong>set apart for God's purposes</strong> — called to live differently from surrounding nations as a reflection of God's own character.<br><br>
+<div class="highlight-box">Kedosh is not merely about ritual cleanliness — it fundamentally means belonging to God and being transformed to reflect His nature.</div>`
+      },
+    ]
+  },
+  numbers: {
+    icon: "🗺",
+    title: "Numbers & Deuteronomy",
+    questions: [
+      {
+        q: "Why is the book of Numbers called what it is called?",
+        pts: 1,
+        a: `The book of Numbers gets its name from the <strong>two censuses (countings/numberings)</strong> of the Israelite people recorded in the book — one near the beginning (Numbers 1) and one near the end (Numbers 26).<br><br>
+The Greek title <em>Arithmoi</em> ("numbers") and Latin <em>Numeri</em> both reflect this counting. In Hebrew, the book is called <span class="key-term">Bemidbar</span> ("In the wilderness"), which many scholars consider a more thematically accurate title since the book is really about Israel's <strong>wilderness journey</strong> rather than statistics.<br><br>
+The censuses were conducted to count <strong>military-eligible men</strong> for the purpose of organizing Israel's camp and preparing for conquest of Canaan.`
+      },
+      {
+        q: "Is wandering seen as a good thing, bad thing, or both in Numbers?",
+        pts: 2,
+        a: `Wandering in Numbers is seen as <strong>BOTH</strong> — but primarily as a consequence of sin, with redemptive dimensions.<br><br>
+<strong>As a bad thing / divine judgment:</strong> The 40 years of wilderness wandering are explicitly God's punishment for Israel's <span class="key-term">faithlessness and rebellion</span>. When the spies returned from Canaan and the people refused to trust God to give them the land (Numbers 13–14), God declared that the faithless generation would <em>not</em> enter the Promised Land — they would wander until that generation died out. Wandering = consequence of unbelief.<br><br>
+<strong>As a good/formative thing:</strong> The wilderness period was also a time of God's intimate provision — manna, water from rock, the pillar of cloud and fire. It was a season of <strong>formation, dependence, and covenant relationship</strong>. God was shaping Israel into His people. The desert became a school of faith.<br><br>
+<div class="highlight-box">Theologically: wandering is simultaneously judgment AND grace — God does not abandon His rebellious people but disciplines and forms them through the journey.</div>`
+      },
+      {
+        q: "Describe in detail one theological theme from the book of Deuteronomy.",
+        pts: 1,
+        a: `<strong>Theme: Covenant Renewal and the Call to Love God Wholeheartedly</strong><br><br>
+Deuteronomy is essentially Moses' farewell address to Israel, delivered on the plains of Moab just before they enter Canaan — a renewal of the Sinai covenant for a new generation.<br><br>
+Its central theological theme is <span class="key-term">love and loyalty to God</span>, summed up in the <strong>Shema</strong> (Deut. 6:4–5): <em>"Hear, O Israel: The LORD our God, the LORD is one. Love the LORD your God with all your heart, soul, and strength."</em><br><br>
+Obedience to God's commands is framed not primarily as legal duty but as a <strong>response of love</strong> to a God who first loved and chose Israel. The book lays out blessings for faithfulness and curses for unfaithfulness — but the core motivation is relationship, not fear.<br><br>
+<div class="highlight-box">Jesus quotes Deuteronomy more than any other book and cites the Shema as the greatest commandment — showing its enduring centrality.</div>
+<strong>Other valid themes:</strong> Remembrance, the uniqueness of God, blessing/curse, the land as gift.`
+      },
+      {
+        q: "Why does 'remembering' play such a significant role in the life of Israel?",
+        pts: 2,
+        a: `<strong>Remembering</strong> is central to Israel's identity for two interconnected reasons:<br><br>
+<strong>1. Israel's faith is rooted in historical events:</strong> Israel did not believe in abstract theological principles — they believed in a God who <em>acted in history</em>. The Exodus, the covenant at Sinai, the wilderness provision — these were real, specific events. To <span class="key-term">remember (zakar)</span> them was to keep faith alive. Forgetting was not just forgetfulness — it was a theological failure, a drift toward idolatry and self-reliance.<br><br>
+<strong>2. Memory shapes identity and faithfulness:</strong> Deuteronomy repeatedly commands Israel to <em>"remember"</em> what God did so that they would remain faithful in the abundance of Canaan. Moses knew that prosperity could cause amnesia — they might forget they were once slaves saved by grace. Rituals like Passover and feasts were designed as <strong>embodied memory</strong> — acting out the story so each generation internalized it as their own.<br><br>
+<div class="highlight-box">To remember in the Hebrew sense (zakar) is not merely cognitive — it is to let the past shape present behavior and future hope. Memory is an act of worship and covenant faithfulness.</div>`
+      },
+    ]
+  },
+  joshua: {
+    icon: "⚔",
+    title: "Joshua & Judges",
+    questions: [
+      {
+        q: "What is the significance of Rahab in the New Testament?",
+        pts: 1,
+        a: `Rahab, the Canaanite prostitute from Jericho who hid Israel's spies (Joshua 2), is significant in the New Testament in two key ways:<br><br>
+<strong>1. Included in Jesus' genealogy (Matthew 1:5):</strong> Rahab is listed as an ancestor of Jesus Christ — a Canaanite outsider and former prostitute in the lineage of the Messiah. This powerfully demonstrates that God's salvation is <span class="key-term">for all people</span>, not just ethnic Israel, and that God uses unlikely, marginalized people in His redemptive plan.<br><br>
+<strong>2. Held up as a model of faith (Hebrews 11:31 & James 2:25):</strong> Rahab is named in the "Hall of Faith" in Hebrews alongside Abraham and Moses. Her faith was demonstrated by <em>action</em> — hiding the spies at personal risk. James uses her as proof that <strong>genuine faith produces works.</strong><br><br>
+<div class="highlight-box">Rahab is a stunning example of grace: a pagan, a prostitute, an outsider — yet her faith saves her household and she becomes part of God's redemptive story.</div>`
+      },
+      {
+        q: "Describe in detail one theological theme from the book of Joshua.",
+        pts: 1,
+        a: `<strong>Theme: God's Faithfulness to His Promises</strong><br><br>
+The book of Joshua is fundamentally about the <span class="key-term">fulfillment of God's covenant promise</span>. For generations, God had promised Abraham, Isaac, Jacob, and Moses that Israel would inherit the land of Canaan. Joshua is the book where that promise is finally fulfilled.<br><br>
+Joshua 21:45 states it clearly: <em>"Not one word of all the good promises that the LORD had made to the house of Israel had failed; all came to pass."</em> This is a profound theological statement — God keeps His word across centuries.<br><br>
+The conquest also highlights the theme of <strong>obedience as the condition for blessing</strong>: when Israel follows God's commands (e.g., at Jericho), they succeed; when they disobey (e.g., Achan's sin at Ai), they fail. The land is a <em>gift</em>, but it requires faithful response.<br><br>
+<div class="highlight-box">Joshua assures readers: God who promised is also God who delivers — His faithfulness spans generations and transcends human failure.</div>
+<strong>Other valid themes:</strong> Holy war / God as warrior, covenant loyalty, the land as inheritance.`
+      },
+      {
+        q: "What exactly is a judge as described by the book of Judges?",
+        pts: 2,
+        a: `In the book of Judges, a <span class="key-term">judge</span> is <strong>not primarily a court official or legal arbiter</strong> as we might think today. Instead, a judge is a <strong>Spirit-empowered military deliverer and leader</strong> whom God raises up to rescue Israel from oppression.<br><br>
+The Hebrew word <em>shophet</em> (שֹׁפֵט) carries a broader meaning: one who governs, leads, and delivers justice in a military and social sense.<br><br>
+<strong>Key characteristics of a judge in Judges:</strong>
+<ul>
+  <li>Called by God in a moment of crisis (Israel's oppression)</li>
+  <li>Empowered by the <strong>Spirit of the LORD</strong> (ruach YHWH)</li>
+  <li>Raised to deliver Israel from a specific enemy/oppressor</li>
+  <li>Serves as a regional leader during their lifetime</li>
+  <li>Not a hereditary or permanent office — temporary, charismatic leadership</li>
+</ul>
+<div class="highlight-box">The judges are deeply flawed heroes (Gideon, Samson, Jephthah) — God works through broken people, highlighting divine grace over human virtue.</div>`
+      },
+      {
+        q: "What are three spiritual lessons we can learn from the judges about leadership?",
+        pts: 3,
+        a: `<strong>Three spiritual lessons from the judges about leadership:</strong><br><br>
+<strong>1. God's power works through unlikely, flawed people:</strong> The judges include a left-handed man (Ehud), a woman (Deborah), a fearful farmer (Gideon), and a moral failure (Samson). God consistently bypasses the powerful and qualified to choose the weak and marginal. The lesson: <span class="key-term">effective spiritual leadership is about God's calling and empowerment, not human credentials or character perfection.</span><br><br>
+<strong>2. Partial obedience leads to compromise and corruption:</strong> Israel never fully drove out the Canaanites as commanded, and the judges themselves often failed morally (Samson's lust, Gideon's idolatry, Jephthah's rash vow). Leaders who tolerate compromise in their own lives and communities eventually produce the very problems they were called to solve. The lesson: <span class="key-term">incomplete obedience is a form of disobedience that has long-term consequences.</span><br><br>
+<strong>3. True leadership points people back to God, not to self:</strong> The tragic pattern of Judges (sin → oppression → cry → deliverance → peace → sin again) shows that judges who drew attention to themselves rather than God produced only temporary fixes. When Gideon was offered kingship, he refused — rightly recognizing that <span class="key-term">God alone is Israel's true King.</span> Sustainable leadership cultivates community dependence on God, not on the leader.`
+      },
+      {
+        q: "What is the thesis of the book of Judges? Why is that significant?",
+        pts: 1,
+        a: `The thesis of Judges is powerfully stated in the book's recurring refrain:<br><br>
+<div class="highlight-box">"In those days there was no king in Israel. Everyone did what was right in his own eyes." (Judges 17:6, 21:25)</div>
+This captures the book's theological argument: <strong>without covenant faithfulness to God as King, moral and social chaos is inevitable.</strong> The downward spiral of the judges — each cycle of sin worse than the last, ending in civil war and atrocity — illustrates what happens when a community abandons divine authority and becomes a law unto itself.<br><br>
+<strong>Why it's significant:</strong>
+<ul>
+  <li>It sets up the monarchy narrative: Israel will ask for a human king (1 Samuel)</li>
+  <li>It is a timeless diagnosis of human nature: autonomy from God produces self-destruction</li>
+  <li>It points forward to the need for a perfect King — ultimately, a Messianic King who truly rules in righteousness</li>
+</ul>`
+      },
+    ]
+  },
+  ruth: {
+    icon: "🌾",
+    title: "Ruth & Holiness",
+    questions: [
+      {
+        q: "What are the two dimensions of holiness that are discussed in the Old Testament?",
+        pts: 2,
+        a: `The Old Testament presents holiness in two interconnected dimensions:<br><br>
+<strong>1. Moral/Ethical Holiness:</strong> Being holy means living righteously — conforming one's conduct to God's character. This includes justice, compassion, sexual purity, honesty, and love of neighbor. Leviticus 19 ties the command "be holy" directly to practical ethics: caring for the poor, paying fair wages, not gossiping, not hating your brother. <span class="key-term">Holiness is not just inner piety — it has concrete social expression.</span><br><br>
+<strong>2. Ritual/Cultic Holiness (Ceremonial Separateness):</strong> This dimension involves the systems of purity, sacrifice, and prescribed worship that set Israel apart as <em>consecrated to God</em>. Certain foods, times (Sabbath), places (the tabernacle/temple), and objects were designated holy — set apart from ordinary use for God's purposes. This dimension constantly reinforced the <span class="key-term">otherness and transcendence of God</span> and Israel's identity as His distinct people.<br><br>
+<div class="highlight-box">Together, these dimensions show that holiness is total: it shapes both <em>how you worship</em> and <em>how you live</em>. You cannot separate devotion to God from ethical treatment of others.</div>`
+      },
+      {
+        q: "Who was Ruth and why do you think her story was included in the Old Testament?",
+        pts: 3,
+        a: `<strong>Who was Ruth?</strong><br>
+Ruth was a <span class="key-term">Moabite woman</span> (from a foreign, pagan nation) who married an Israelite man named Mahlon while he and his family were living in Moab as refugees during a famine. When her husband, father-in-law, and brother-in-law all died, Ruth chose to return to Bethlehem with her mother-in-law Naomi rather than return to her own people and gods.<br><br>
+Her declaration of loyalty — <em>"Where you go, I will go; where you die, I will die; your God will be my God"</em> — is one of the most profound statements of covenantal loyalty in the Bible. In Bethlehem, she eventually married Boaz, a kinsman-redeemer, and became an ancestor of King David — and thus of Jesus.<br><br>
+<strong>Why was her story included?</strong> (Multiple strong reasons)<br>
+<ul>
+  <li><strong>To show that God's covenant is not ethnically exclusive:</strong> A Moabite outsider is fully embraced by Israel's God. Salvation and belonging are based on <em>faith and loyalty</em>, not bloodline.</li>
+  <li><strong>To model the concept of <em>hesed</em> (covenant lovingkindness):</strong> Ruth embodies the loyal, self-giving love that God himself shows. She is a human picture of divine faithfulness.</li>
+  <li><strong>To set the stage for the Davidic lineage:</strong> Her son Obed is David's grandfather — connecting the story to Israel's greatest king and ultimately to the Messiah.</li>
+  <li><strong>As a counter-narrative to xenophobia:</strong> Written possibly during a period when Israel was excluding foreigners, Ruth challenges the community to remember that God works through the "other."</li>
+</ul>
+<div class="highlight-box">Ruth's story is included because it is a microcosm of the entire Bible's message: God's redemptive love crosses boundaries, restores the broken, and works through unexpected people to accomplish His purposes.</div>`
+      },
+    ]
+  }
+};
+
+// Build commandments
+const grid = document.getElementById('cmdGrid');
+commandments.forEach((cmd, i) => {
+  const card = document.createElement('div');
+  card.className = 'commandment-card';
+  card.dataset.index = i;
+  card.innerHTML = `
+    <div class="cmd-number">COMMANDMENT ${cmd.num}</div>
+    <div class="cmd-short">${cmd.short}</div>
+    <div class="cmd-full">${cmd.full}</div>
+    <div class="cmd-reveal-hint">↓ tap to reveal</div>
+  `;
+  card.addEventListener('click', () => {
+    card.classList.toggle('revealed');
+    updateProgress();
+  });
+  grid.appendChild(card);
+});
+
+// Build Q&A sections
+function buildQA(sectionId, data) {
+  const container = document.getElementById(sectionId + '-qa');
+  const header = document.createElement('div');
+  header.className = 'book-header';
+  header.innerHTML = `<span>${data.icon}</span> ${data.title}`;
+  container.appendChild(header);
+
+  data.questions.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'qa-card';
+    card.dataset.section = sectionId;
+    card.innerHTML = `
+      <div class="qa-question">
+        <div class="qa-question-text">${item.q}</div>
+        <div class="qa-meta">
+          <span class="points-badge">${item.pts} pt${item.pts > 1 ? 's' : ''}</span>
+          <span class="toggle-icon">+</span>
+        </div>
+      </div>
+      <div class="qa-answer"><div class="answer-inner">${item.a}</div></div>
+    `;
+    card.querySelector('.qa-question').addEventListener('click', () => {
+      const wasOpen = card.classList.contains('open');
+      card.classList.toggle('open');
+      if (!wasOpen) updateProgress();
+    });
+    container.appendChild(card);
+  });
+}
+
+buildQA('exodus', qaData.exodus);
+buildQA('numbers', qaData.numbers);
+buildQA('joshua', qaData.joshua);
+buildQA('ruth', qaData.ruth);
+
+// Progress tracking
+let reviewedSet = new Set();
+function updateProgress() {
+  const cmdCards = document.querySelectorAll('.commandment-card.revealed');
+  const openCards = document.querySelectorAll('.qa-card.open');
+  const total = commandments.length + Object.values(qaData).reduce((s, d) => s + d.questions.length, 0);
+  const done = cmdCards.length + openCards.length;
+  const pct = Math.round((done / total) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${done} / ${total} reviewed`;
+}
+
+// Tab switching
+function showSection(id) {
+  document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Open all in a section
+function openAll(sectionId) {
+  document.querySelectorAll(`[data-section="${sectionId}"]`).forEach(c => c.classList.add('open'));
+  updateProgress();
+}
+</script>
+</body>
+</html>
