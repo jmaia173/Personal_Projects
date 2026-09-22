@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brighton &amp; Hove Albion — Home</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="club-badge">
+        <svg viewBox="0 0 48 48" class="badge-icon"><circle cx="24" cy="24" r="22" fill="#1c3a63" stroke="#3b6ea5" stroke-width="1.5"/><path d="M14 30 Q24 14 34 30" stroke="#dfe9f5" stroke-width="2" fill="none"/><circle cx="24" cy="22" r="4" fill="#dfe9f5"/></svg>
+      </div>
+      <button class="nav-chevron"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="nav-chevron"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="club-title">
+        <div class="club-name">Brighton &amp; Hove Albion <i class="fa-solid fa-chevron-down title-chevron"></i></div>
+        <div class="club-sub">Premier League&nbsp;&nbsp;|&nbsp;&nbsp;5th</div>
+      </div>
+    </div>
+
+    <div class="topbar-center">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search (Ctrl+K)</span>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="date-display">
+        <i class="fa-regular fa-clock"></i>
+        <div class="date-text">
+          <span class="date-line">Sat 26 Apr 2026</span>
+          <span class="time-line">10:00</span>
+        </div>
+      </div>
+      <button class="icon-btn"><i class="fa-regular fa-calendar"></i></button>
+      <button class="continue-btn"><i class="fa-solid fa-play"></i> Continue</button>
+      <button class="icon-btn bell-btn"><i class="fa-regular fa-bell"></i><span class="bell-dot"></span></button>
+      <div class="user-chip">
+        <div class="avatar">JM</div>
+        <div class="user-text">
+          <span class="user-name">João Maia</span>
+          <span class="user-role">Manager</span>
+        </div>
+        <i class="fa-solid fa-chevron-down title-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="body-wrap">
+
+    <!-- ============ LEFT SIDEBAR ============ -->
+    <nav class="sidebar">
+      <ul class="nav-list">
+        <li class="nav-item active"><i class="fa-solid fa-house"></i><span>Home</span></li>
+        <li class="nav-item"><i class="fa-solid fa-inbox"></i><span>Inbox</span><span class="nav-badge">3</span></li>
+        <li class="nav-item"><i class="fa-solid fa-users"></i><span>Squad</span></li>
+        <li class="nav-item"><i class="fa-solid fa-chalkboard"></i><span>Tactics</span></li>
+        <li class="nav-item"><i class="fa-solid fa-dumbbell"></i><span>Training</span></li>
+        <li class="nav-item"><i class="fa-solid fa-binoculars"></i><span>Recruitment</span></li>
+        <li class="nav-item"><i class="fa-solid fa-right-left"></i><span>Transfers</span></li>
+        <li class="nav-item"><i class="fa-solid fa-diagram-project"></i><span>Dynamics</span></li>
+        <li class="nav-item"><i class="fa-solid fa-table-list"></i><span>Matches</span></li>
+        <li class="nav-item"><i class="fa-solid fa-trophy"></i><span>Competitions</span></li>
+        <li class="nav-item"><i class="fa-solid fa-building-columns"></i><span>Club</span></li>
+        <li class="nav-item"><i class="fa-solid fa-sack-dollar"></i><span>Finances</span></li>
+      </ul>
+
+      <div class="nav-section-label">Favourites</div>
+      <ul class="nav-list">
+        <li class="nav-item"><i class="fa-solid fa-file-lines"></i><span>Team Report</span></li>
+        <li class="nav-item"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Scouting</span></li>
+        <li class="nav-item"><i class="fa-solid fa-graduation-cap"></i><span>Youth Academy</span></li>
+        <li class="nav-item"><i class="fa-solid fa-calendar-days"></i><span>Schedule</span></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <i class="fa-solid fa-gear"></i><span>Customise</span>
+      </div>
+    </nav>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="main-content">
+      <div class="content-grid">
+
+        <!-- ===== COLUMN 1 : INBOX + SQUAD SNAPSHOT ===== -->
+        <div class="col col-1">
+          <section class="panel inbox-panel">
+            <div class="panel-header">
+              <h2>Inbox</h2>
+              <div class="panel-header-right">
+                <span class="unread-link">3 unread</span>
+                <i class="fa-solid fa-filter"></i>
+                <i class="fa-solid fa-chevron-up"></i>
+              </div>
+            </div>
+
+            <div class="inbox-tabs">
+              <span class="tab active">All</span>
+              <span class="tab">Messages</span>
+              <span class="tab">Scouting</span>
+              <span class="tab">Transfers</span>
+              <span class="tab">Contracts</span>
+              <span class="tab">Injuries</span>
+            </div>
+
+            <div class="inbox-table">
+              <div class="inbox-col-header">
+                <span class="ch-type">Type</span>
+                <span class="ch-subject">Subject</span>
+                <span class="ch-from">From</span>
+                <span class="ch-date">Date</span>
+              </div>
+
+              <div class="inbox-group-label">Today</div>
+
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-envelope"></i></span>
+                <span class="row-subject"><strong>Pre-match press conference</strong><small>F. Hürzeler speaks ahead of Liverpool clash</small></span>
+                <span class="row-from">Media Team</span>
+                <span class="row-date">08:42</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-user"></i></span>
+                <span class="row-subject"><strong>Team selection update</strong><small>Expected lineup vs Liverpool</small></span>
+                <span class="row-from">Roberto De Zerbi</span>
+                <span class="row-date">08:12</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-orange"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <span class="row-subject"><strong>Training report</strong><small>Positive signs from tactical session</small></span>
+                <span class="row-from">R. Potts (Assistant)</span>
+                <span class="row-date">07:56</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-envelope"></i></span>
+                <span class="row-subject"><strong>Board confidence update</strong><small>Expectations remain high</small></span>
+                <span class="row-from">Chairman</span>
+                <span class="row-date">07:34</span>
+              </div>
+
+              <div class="inbox-group-label">Yesterday</div>
+
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-user"></i></span>
+                <span class="row-subject"><strong>Scouting update</strong><small>3 new players recommended</small></span>
+                <span class="row-from">Chief Scout</span>
+                <span class="row-date">17:23</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-green"><i class="fa-solid fa-right-left"></i></span>
+                <span class="row-subject"><strong>Loan offer received</strong><small>West Ham interested in Webster</small></span>
+                <span class="row-from">Director of Football</span>
+                <span class="row-date">14:11</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-envelope"></i></span>
+                <span class="row-subject"><strong>Contract negotiation</strong><small>Caicedo's agent requests meeting</small></span>
+                <span class="row-from">Agent</span>
+                <span class="row-date">11:08</span>
+              </div>
+
+              <div class="inbox-group-label">Wednesday 23rd April</div>
+
+              <div class="inbox-row">
+                <span class="row-icon icon-red"><i class="fa-solid fa-notes-medical"></i></span>
+                <span class="row-subject"><strong>Injury update</strong><small>Ferguson doubtful for Liverpool</small></span>
+                <span class="row-from">Physio</span>
+                <span class="row-date">16:32</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-tv"></i></span>
+                <span class="row-subject"><strong>Match preview</strong><small>Liverpool vs Brighton</small></span>
+                <span class="row-from">Assistant Manager</span>
+                <span class="row-date">10:21</span>
+              </div>
+
+              <div class="inbox-group-label">Tuesday 22nd April</div>
+
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-envelope"></i></span>
+                <span class="row-subject"><strong>Transfer bid</strong><small>£18M bid for Buonanote rejected</small></span>
+                <span class="row-from">Director of Football</span>
+                <span class="row-date">19:14</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-user"></i></span>
+                <span class="row-subject"><strong>Scouting report</strong><small>Reports on Amrabat (Fiorentina)</small></span>
+                <span class="row-from">Chief Scout</span>
+                <span class="row-date">15:46</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-envelope"></i></span>
+                <span class="row-subject"><strong>Media interest</strong><small>Brighton linked with young midfielder</small></span>
+                <span class="row-from">Media Team</span>
+                <span class="row-date">12:08</span>
+              </div>
+              <div class="inbox-row">
+                <span class="row-icon icon-blue"><i class="fa-solid fa-envelope"></i></span>
+                <span class="row-subject"><strong>Contract extension</strong><small>Enciso interested in new deal</small></span>
+                <span class="row-from">Agent</span>
+                <span class="row-date">09:33</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel squad-panel">
+            <div class="panel-header">
+              <h2>Squad Snapshot</h2>
+              <div class="panel-header-right">
+                <span class="dropdown-link">All Positions <i class="fa-solid fa-chevron-down"></i></span>
+                <span class="view-link">View Squad</span>
+              </div>
+            </div>
+
+            <div class="squad-table">
+              <div class="squad-col-header">
+                <span class="sc-num">#</span>
+                <span class="sc-name">Name</span>
+                <span class="sc-pos">Pos</span>
+                <span class="sc-age">Age</span>
+                <span class="sc-status">Status</span>
+                <span class="sc-cond">Condition</span>
+                <span class="sc-morale">Morale</span>
+                <span class="sc-role">Role</span>
+              </div>
+
+              <!-- rows -->
+              <div class="squad-row">
+                <span class="sc-num">1</span>
+                <span class="sc-name">Bart Verbruggen</span>
+                <span class="sc-pos">GK</span>
+                <span class="sc-age">22</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>92%</span>
+                <span class="sc-morale"><i class="fa-solid fa-star morale-vgood"></i>Very Good</span>
+                <span class="sc-role">Goalkeeper</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">4</span>
+                <span class="sc-name">Lewis Dunk</span>
+                <span class="sc-pos">D (C)</span>
+                <span class="sc-age">32</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>88%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Ball Playing Defender</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">5</span>
+                <span class="sc-name">Jan Paul van Hecke</span>
+                <span class="sc-pos">D (C)</span>
+                <span class="sc-age">25</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>90%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Central Defender</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">34</span>
+                <span class="sc-name">Igor Julio</span>
+                <span class="sc-pos">D (C)</span>
+                <span class="sc-age">27</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>87%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Central Defender</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">26</span>
+                <span class="sc-name">Ferdi Kadioglu</span>
+                <span class="sc-pos">D/WB (R)</span>
+                <span class="sc-age">24</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>89%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Wing Back</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">6</span>
+                <span class="sc-name">Billy Gilmour</span>
+                <span class="sc-pos">DM, M (C)</span>
+                <span class="sc-age">23</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>85%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Deep Lying Playmaker</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">20</span>
+                <span class="sc-name">Carlos Baleba</span>
+                <span class="sc-pos">DM, M (C)</span>
+                <span class="sc-age">21</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>86%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Box to Box Midfielder</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">10</span>
+                <span class="sc-name">Kaoru Mitoma</span>
+                <span class="sc-pos">AM (L)</span>
+                <span class="sc-age">23</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>83%</span>
+                <span class="sc-morale"><i class="fa-solid fa-star morale-vgood"></i>Very Good</span>
+                <span class="sc-role">Winger</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">22</span>
+                <span class="sc-name">Simon Adingra</span>
+                <span class="sc-pos">AM (R)</span>
+                <span class="sc-age">23</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>82%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Winger</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">9</span>
+                <span class="sc-name">João Pedro</span>
+                <span class="sc-pos">ST (C)</span>
+                <span class="sc-age">23</span>
+                <span class="sc-status"><i class="dot dot-green"></i>Fit</span>
+                <span class="sc-cond"><i class="dot dot-green"></i>88%</span>
+                <span class="sc-morale"><i class="fa-solid fa-star morale-vgood"></i>Very Good</span>
+                <span class="sc-role">Advanced Forward</span>
+              </div>
+              <div class="squad-row">
+                <span class="sc-num">18</span>
+                <span class="sc-name">Danny Welbeck</span>
+                <span class="sc-pos">ST (C)</span>
+                <span class="sc-age">34</span>
+                <span class="sc-status"><i class="dot dot-red"></i>Injured</span>
+                <span class="sc-cond"><i class="dot dot-orange"></i>64%</span>
+                <span class="sc-morale"><i class="fa-solid fa-circle morale-good"></i>Good</span>
+                <span class="sc-role">Advanced Forward</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===== COLUMN 2 : UPCOMING MATCHES + LEAGUE TABLE ===== -->
+        <div class="col col-2">
+          <section class="panel matches-panel">
+            <div class="panel-header">
+              <h2>Upcoming Matches</h2>
+              <div class="panel-header-right"><i class="fa-solid fa-chevron-up"></i></div>
+            </div>
+            <div class="matches-table">
+              <div class="matches-col-header">
+                <span class="mc-date">Date</span>
+                <span class="mc-opp">Opponent</span>
+                <span class="mc-comp">Comp</span>
+                <span class="mc-ha">H/A</span>
+              </div>
+              <div class="matches-row">
+                <span class="mc-date">Sun 27 Apr</span>
+                <span class="mc-opp"><span class="crest crest-liverpool"></span>Liverpool</span>
+                <span class="mc-comp">Premier League</span>
+                <span class="mc-ha">A</span>
+                <i class="fa-solid fa-chevron-right row-chevron"></i>
+              </div>
+              <div class="matches-row">
+                <span class="mc-date">Wed 30 Apr</span>
+                <span class="mc-opp"><span class="crest crest-tottenham"></span>Tottenham</span>
+                <span class="mc-comp">Premier League</span>
+                <span class="mc-ha">H</span>
+                <i class="fa-solid fa-chevron-right row-chevron"></i>
+              </div>
+              <div class="matches-row">
+                <span class="mc-date">Sat 3 May</span>
+                <span class="mc-opp"><span class="crest crest-westham"></span>West Ham</span>
+                <span class="mc-comp">Premier League</span>
+                <span class="mc-ha">A</span>
+                <i class="fa-solid fa-chevron-right row-chevron"></i>
+              </div>
+              <div class="matches-row">
+                <span class="mc-date">Sat 10 May</span>
+                <span class="mc-opp"><span class="crest crest-manutd"></span>Man Utd</span>
+                <span class="mc-comp">Premier League</span>
+                <span class="mc-ha">H</span>
+                <i class="fa-solid fa-chevron-right row-chevron"></i>
+              </div>
+              <div class="matches-row">
+                <span class="mc-date">Sun 18 May</span>
+                <span class="mc-opp"><span class="crest crest-villa"></span>Aston Villa</span>
+                <span class="mc-comp">Premier League</span>
+                <span class="mc-ha">A</span>
+                <i class="fa-solid fa-chevron-right row-chevron"></i>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel league-panel">
+            <div class="panel-header">
+              <h2><i class="fa-solid fa-trophy league-icon"></i> Premier League</h2>
+            </div>
+            <div class="league-subheader">
+              <span class="stages-label">STAGES</span>
+              <span class="dropdown-link">League Table <i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="league-table">
+              <div class="league-col-header">
+                <span class="lc-pos">Pos</span>
+                <span class="lc-club">Club</span>
+                <span class="lc-pld">Pld</span>
+                <span class="lc-gd">GD</span>
+                <span class="lc-pts">Pts</span>
+              </div>
+
+              <div class="league-row zone-cl">
+                <span class="lc-pos">1</span><span class="lc-club"><span class="crest crest-liverpool"></span>Liverpool</span><span class="lc-pld">34</span><span class="lc-gd">+48</span><span class="lc-pts">82</span>
+              </div>
+              <div class="league-row zone-cl">
+                <span class="lc-pos">2</span><span class="lc-club"><span class="crest crest-mancity"></span>Man City</span><span class="lc-pld">34</span><span class="lc-gd">+40</span><span class="lc-pts">80</span>
+              </div>
+              <div class="league-row zone-cl">
+                <span class="lc-pos">3</span><span class="lc-club"><span class="crest crest-chelsea"></span>Chelsea</span><span class="lc-pld">34</span><span class="lc-gd">+28</span><span class="lc-pts">67</span>
+              </div>
+              <div class="league-row zone-cl">
+                <span class="lc-pos">4</span><span class="lc-club"><span class="crest crest-tottenham"></span>Tottenham</span><span class="lc-pld">34</span><span class="lc-gd">+18</span><span class="lc-pts">64</span>
+              </div>
+              <div class="league-row zone-user">
+                <span class="lc-pos">5</span><span class="lc-club"><span class="crest crest-brighton"></span>Brighton</span><span class="lc-pld">34</span><span class="lc-gd">+15</span><span class="lc-pts">62</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">6</span><span class="lc-club"><span class="crest crest-arsenal"></span>Arsenal</span><span class="lc-pld">34</span><span class="lc-gd">+24</span><span class="lc-pts">61</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">7</span><span class="lc-club"><span class="crest crest-newcastle"></span>Newcastle</span><span class="lc-pld">34</span><span class="lc-gd">+12</span><span class="lc-pts">59</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">8</span><span class="lc-club"><span class="crest crest-villa"></span>Aston Villa</span><span class="lc-pld">34</span><span class="lc-gd">+8</span><span class="lc-pts">56</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">9</span><span class="lc-club"><span class="crest crest-manutd"></span>Man Utd</span><span class="lc-pld">34</span><span class="lc-gd">+6</span><span class="lc-pts">54</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">10</span><span class="lc-club"><span class="crest crest-westham"></span>West Ham</span><span class="lc-pld">34</span><span class="lc-gd">+4</span><span class="lc-pts">52</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">11</span><span class="lc-club"><span class="crest crest-fulham"></span>Fulham</span><span class="lc-pld">34</span><span class="lc-gd">-2</span><span class="lc-pts">49</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">12</span><span class="lc-club"><span class="crest crest-bournemouth"></span>Bournemouth</span><span class="lc-pld">34</span><span class="lc-gd">-6</span><span class="lc-pts">48</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">13</span><span class="lc-club"><span class="crest crest-crystalpalace"></span>Crystal Palace</span><span class="lc-pld">34</span><span class="lc-gd">-8</span><span class="lc-pts">46</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">14</span><span class="lc-club"><span class="crest crest-everton"></span>Everton</span><span class="lc-pld">34</span><span class="lc-gd">-10</span><span class="lc-pts">44</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">15</span><span class="lc-club"><span class="crest crest-wolves"></span>Wolves</span><span class="lc-pld">34</span><span class="lc-gd">-12</span><span class="lc-pts">42</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">16</span><span class="lc-club"><span class="crest crest-brentford"></span>Brentford</span><span class="lc-pld">34</span><span class="lc-gd">-14</span><span class="lc-pts">40</span>
+              </div>
+              <div class="league-row">
+                <span class="lc-pos">17</span><span class="lc-club"><span class="crest crest-leicester"></span>Leicester</span><span class="lc-pld">34</span><span class="lc-gd">-18</span><span class="lc-pts">37</span>
+              </div>
+              <div class="league-row zone-relegation">
+                <span class="lc-pos">18</span><span class="lc-club"><span class="crest crest-ipswich"></span>Ipswich</span><span class="lc-pld">34</span><span class="lc-gd">-22</span><span class="lc-pts">34</span>
+              </div>
+              <div class="league-row zone-relegation">
+                <span class="lc-pos">19</span><span class="lc-club"><span class="crest crest-southampton"></span>Southampton</span><span class="lc-pld">34</span><span class="lc-gd">-28</span><span class="lc-pts">31</span>
+              </div>
+              <div class="league-row zone-relegation">
+                <span class="lc-pos">20</span><span class="lc-club"><span class="crest crest-westham"></span>West Ham</span><span class="lc-pld">34</span><span class="lc-gd">-32</span><span class="lc-pts">28</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===== COLUMN 3 : NEXT FIXTURE / TEAM NEWS / INJURIES / QUICK ACTIONS ===== -->
+        <div class="col col-3">
+
+          <section class="panel fixture-panel">
+            <div class="panel-header"><h2>Next Fixture</h2></div>
+            <div class="fixture-comp"><i class="fa-solid fa-trophy fixture-trophy"></i> Premier League</div>
+            <div class="fixture-datetime">Sun 27 Apr 2026 - 16:30</div>
+            <div class="fixture-matchup">
+              <div class="fixture-team">
+                <span class="crest crest-liverpool crest-lg"></span>
+                <span class="fixture-team-name">Liverpool</span>
+                <span class="fixture-team-pos">1st</span>
+              </div>
+              <div class="fixture-vs">V</div>
+              <div class="fixture-team">
+                <span class="crest crest-brighton crest-lg"></span>
+                <span class="fixture-team-name">Brighton</span>
+                <span class="fixture-team-pos">5th</span>
+              </div>
+            </div>
+            <div class="fixture-venue"><i class="fa-solid fa-building"></i> Anfield</div>
+          </section>
+
+          <section class="panel news-panel">
+            <div class="panel-header">
+              <h2>Team News</h2>
+              <div class="panel-header-right"><i class="fa-solid fa-chevron-up"></i></div>
+            </div>
+
+            <div class="news-team-label"><span class="crest crest-brighton"></span>Brighton</div>
+            <ul class="news-list">
+              <li><i class="fa-solid fa-circle-plus news-icon-green"></i>Ferguson back in training</li>
+              <li><i class="fa-solid fa-circle-plus news-icon-green"></i>Mitoma available</li>
+              <li><i class="fa-solid fa-triangle-exclamation news-icon-orange"></i>Estupiñán (knock) doubtful</li>
+              <li><i class="fa-solid fa-circle-xmark news-icon-red"></i>Welbeck (hamstring) out</li>
+            </ul>
+
+            <div class="news-team-label"><span class="crest crest-liverpool"></span>Liverpool</div>
+            <ul class="news-list">
+              <li><i class="fa-solid fa-circle-plus news-icon-green"></i>Van Dijk fit</li>
+              <li><i class="fa-solid fa-triangle-exclamation news-icon-orange"></i>Salah doubtful</li>
+              <li><i class="fa-solid fa-circle-xmark news-icon-red"></i>Konaté out</li>
+            </ul>
+          </section>
+
+          <section class="panel injuries-panel">
+            <div class="panel-header">
+              <h2>Injuries</h2>
+              <span class="count-badge">4</span>
+            </div>
+            <ul class="injuries-list">
+              <li>
+                <i class="fa-solid fa-circle-plus injury-icon"></i>
+                <span class="injury-info"><span class="injury-name">Evan Ferguson</span><span class="injury-type">Strain</span></span>
+                <span class="injury-time">1-2 wks</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-plus injury-icon"></i>
+                <span class="injury-info"><span class="injury-name">Joël Veltman</span><span class="injury-type">Knee</span></span>
+                <span class="injury-time">3-4 wks</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-plus injury-icon"></i>
+                <span class="injury-info"><span class="injury-name">Danny Welbeck</span><span class="injury-type">Hamstring</span></span>
+                <span class="injury-time">2-3 wks</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-plus injury-icon"></i>
+                <span class="injury-info"><span class="injury-name">Solly March</span><span class="injury-type">Ankle</span></span>
+                <span class="injury-time">4-6 wks</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="panel actions-panel">
+            <div class="panel-header"><h2>Quick Actions</h2></div>
+            <ul class="actions-list">
+              <li><i class="fa-solid fa-chalkboard action-icon"></i>Tactics<i class="fa-solid fa-chevron-right row-chevron"></i></li>
+              <li><i class="fa-solid fa-file-lines action-icon"></i>Team Report<i class="fa-solid fa-chevron-right row-chevron"></i></li>
+              <li><i class="fa-solid fa-magnifying-glass-chart action-icon"></i>Scouting Centre<i class="fa-solid fa-chevron-right row-chevron"></i></li>
+              <li><i class="fa-solid fa-right-left action-icon"></i>Transfer Centre<i class="fa-solid fa-chevron-right row-chevron"></i></li>
+              <li><i class="fa-regular fa-calendar action-icon"></i>Schedule<i class="fa-solid fa-chevron-right row-chevron"></i></li>
+              <li><i class="fa-solid fa-person-running action-icon"></i>Training Schedule<i class="fa-solid fa-chevron-right row-chevron"></i></li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
